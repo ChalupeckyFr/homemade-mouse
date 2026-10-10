@@ -31,7 +31,7 @@ Původní seznam zmiňoval kontaktní pole, propojovací vodiče, rezistory, kon
 
 - [BMI160 datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi160-ds000.pdf)
 - [ESP32-C3 datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
-- [TP4056 datasheet – kopie](https://www.alldatasheet.com/datasheet-pdf/pdf/1132405/ASIC/TP4056.html)
+- [TP4056 datasheet výrobce TPower](http://toppwr.com/uploadfile/file/20240130/65b892bb04a3c.pdf) ([kopie u AllDatasheet](https://www.alldatasheet.com/datasheet-pdf/pdf/1132405/ASIC/TP4056.html))
 - [KiCad knihovny a dokumentace](https://docs.kicad.org/)
 
 Přehled pinů a elektrických omezení je v [elektrickém návrhu](../design/circuits/CIRCUITS.md). Otevřené výběry jsou součástí [roadmapy](../guide/ROADMAP.md).

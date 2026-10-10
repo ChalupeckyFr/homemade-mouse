@@ -67,7 +67,7 @@ Záměr bateriového monitoru je dělič z bateriového uzlu před boostem na ov
 
 - [Bosch BMI160 datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi160-ds000.pdf) a [BMI160 SensorAPI](https://github.com/boschsensortec/BMI160_SensorAPI) (repozitář API není tímto projektem prohlášen za aktivně udržovaný).
 - [ESP32-C3 datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf), [GPIO dokumentace](https://docs.espressif.com/projects/esp-idf/en/stable/esp32c3/api-reference/peripherals/gpio.html) a [hardware checklist](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32c3/schematic-checklist.html).
-- [TP4056 datasheet – kopie](https://www.alldatasheet.com/datasheet-pdf/pdf/1132405/ASIC/TP4056.html), [TI power-path vysvětlení](https://www.ti.com/lit/an/slyt842/slyt842.pdf) a [Microchip AN1149](https://ww1.microchip.com/downloads/en/AppNotes/01149a.pdf).
+- [TP4056 datasheet výrobce TPower](http://toppwr.com/uploadfile/file/20240130/65b892bb04a3c.pdf) ([kopie u AllDatasheet](https://www.alldatasheet.com/datasheet-pdf/pdf/1132405/ASIC/TP4056.html)), [TI power-path vysvětlení](https://www.ti.com/lit/an/slyt842/slyt842.pdf) a [Microchip AN1149](https://ww1.microchip.com/downloads/en/AppNotes/01149a.pdf).
 - [NXP AN3397: IMU dead reckoning](https://www.nxp.com/docs/en/application-note/AN3397.pdf) a [článek o omezeních odhadu polohy IMU](https://arxiv.org/abs/1311.4572).
 - [KiCad dokumentace](https://docs.kicad.org/) pro symboly, footprinty, ERC a knihovny; [Windows mouse input](https://learn.microsoft.com/en-us/windows/win32/learnwin32/mouse-input).
 
