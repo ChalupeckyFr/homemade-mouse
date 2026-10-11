@@ -1,6 +1,6 @@
 # Budoucí testovací plán
 
-Všechny body jsou plánované kontroly; repozitář neobsahuje výsledky těchto testů. Zkoušky provádět postupně a nepřipojovat baterii, dokud nejsou dokončeny bezpečnostní kontroly napájení. Testy nabíjení se zátěží až po návrhu a revizi skutečného power-path.
+Níže uvedené kontroly hardwaru jsou plánované a repozitář neobsahuje jejich fyzické výsledky. Samostatný experiment BMI160 a jeho hostitelské testy jsou popsané v [návodu experimentu](../experiments/bmi160-motion/README.md); úspěšný hostitelský test není fyzické měření. Zkoušky provádět postupně a nepřipojovat baterii, dokud nejsou dokončeny bezpečnostní kontroly napájení. Testy nabíjení se zátěží až po návrhu a revizi skutečného power-path.
 
 ## Před napájením
 
@@ -22,7 +22,7 @@ Zaznamenat: datum, revizi zapojení, přístroje, napětí, proudový limit zdro
 5. **ADC baterie:** porovnat napětí článku/zdroje a ADC výpočet při několika bodech v povoleném rozsahu, ověřit attenuation, kalibraci, ustálení a vliv zátěže.
 6. **Motor:** až po kontrole jeho napětí/proudu, tranzistoru, bázového odporu a orientace flyback diody. Sledovat pokles napájení, rušení, restarty a I²C chyby při spínání.
 7. **BLE HID:** otestovat pairing, připojení, odpojení a opětovné připojení; ověřit, že odpojení ani zakmitání nevyvolá zaseknuté tlačítko.
-8. **Pohyb:** měřit drift v klidu, odezvu, latenci, opakovatelnost, spotřebu a chování filtrů v různých polohách. Zvlášť zaznamenat, že IMU test neprokazuje podložkové XY tracking ani výšku.
+8. **Pohyb:** postup pro samostatný pokus BMI160, včetně driftu, přímé dvojí integrace a volitelného ZUPT, je v [experimentu BMI160](../experiments/bmi160-motion/README.md). Měřit drift v klidu, odezvu, latenci, opakovatelnost, spotřebu a chování filtrů v různých polohách. Zvlášť zaznamenat, že IMU test neprokazuje podložkové XY tracking ani výšku.
 9. **OLED a UI:** po výběru modulu ověřit napájení, adresu, obnovu displeje a to, že vykreslování neblokuje snímání/HID.
 10. **Nabíjení:** provést pouze po revizi konkrétní nabíječky, článku a power-path. Bez ověřeného power-path nabíjet s odpojenou zátěží. Zaznamenat napětí, proud, teplotu a chování ukončení nabíjení podle specifikace článku.
 

@@ -33,7 +33,7 @@ Schéma kontaktů a mapování názvů tlačítek jsou v [elektrickém návrhu](
 
 ## Pohybová data
 
-BMI160 měří gyroskopickou úhlovou rychlost a akcelerometrickou specifickou sílu včetně gravitace. V Air režimu se dá navrhnout relativní mapování: vzorkování → kalibrace biasu v klidu → filtrování/mrtvá zóna → použití časového kroku `dt` → relativní `dx/dy` → BLE HID. Frekvence, citlivost a latence jsou hodnoty k návrhu a následnému změření, nikoli dosavadní výsledky. Hostitelský operační systém určuje výslednou odezvu kurzoru; pohyb nelze slíbit jako přesný počet obrazových pixelů.
+BMI160 měří gyroskopickou úhlovou rychlost a akcelerometrickou specifickou sílu včetně gravitace. Záměrem Air režimu je převádět **posun celé myši v X/Y/Z**, nikoli ovládat kurzor pouhým otáčením; gyro může pomoci odhadovat orientaci, ale orientační fúze zůstává budoucí, neověřená etapa. Samostatný [měřicí experiment BMI160](../experiments/bmi160-motion/README.md) zkouší vzorkování a dvojí integraci zrychlení pouze pro fixní orientaci. Frekvence, citlivost, drift a latence jsou hodnoty k návrhu a měření, nikoli dosavadní výsledky. Hostitelský operační systém určuje výslednou odezvu kurzoru; pohyb nelze slíbit jako přesný počet obrazových pixelů.
 
 Akcelerometr může pomoct odhadovat náklon roll/pitch, ale neposkytuje referenci yaw. Dvojí integrace akcelerace rychle kumuluje chybu. Zrychlení osy Z ani klidová kalibrace neurčují výšku nad stolem. BMI160 samotný nezajišťuje optické XY sledování po podložce. Požadovaný Normal režim je proto otevřený technický problém; optický snímač a detekci zdvihu je třeba vybrat a ověřit. Podrobnosti a zdroje jsou v [elektrickém návrhu](../design/circuits/CIRCUITS.md).
 
