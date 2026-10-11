@@ -60,11 +60,19 @@ class AnalysisTests(unittest.TestCase):
             csv_row(1010, 0.01, 0.012, "RUNNING_ZUPT_HEURISTIC|ZUPT_APPLIED", "1"),
         ])
         report = make_report(rows, (0.01, 0, 0))
-        self.assertIn("Skutečná vzorkovací frekvence", report)
+        self.assertIn("Frekvence zaznamenaných řádků", report)
         self.assertIn("1=2", report)
         self.assertIn("Rozsah posunu segmentu 1", report)
         self.assertIn("X=+0.002000", report)
         self.assertIn("ZUPT_APPLIED", report)
+
+    def test_warns_when_sensor_or_serial_samples_were_lost(self):
+        rows = self.write_log([
+            csv_row(1000, 0, 0),
+            csv_row(1010, 0.01, 0),
+        ])
+        rows[-1]["missed_samples"] = 1
+        self.assertIn("není frekvencí všech vzorků senzoru", make_report(rows))
 
     def test_rejects_non_monotonic_timestamp_and_wrong_dt(self):
         with self.assertRaisesRegex(ValueError, "strictly increasing"):

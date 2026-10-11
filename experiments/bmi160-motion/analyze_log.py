@@ -109,19 +109,26 @@ def make_report(rows, reference_end=None):
     dt_values = [row["dt_s"] for row in rows[1:]]
     stationary = [row for row in rows if "ZUPT_APPLIED" in row["state_flags"]]
     segments = Counter(row["segment_id"] for row in rows)
+    missed = max(row["missed_samples"] for row in rows)
+    dropped = max(row["serial_dropped_rows"] for row in rows)
     lines = [
         f"Vzorky: {len(rows)}",
         f"Časový rozsah: {elapsed:.3f} s",
-        f"Skutečná vzorkovací frekvence z časových značek: {frequency:.2f} Hz",
+        f"Frekvence zaznamenaných řádků podle časových značek: {frequency:.2f} Hz",
     ]
+    if missed or dropped:
+        lines.append(
+            "POZOR: log hlásí ztracené vzorky/řádky; frekvence řádků CSV není "
+            "frekvencí všech vzorků senzoru."
+        )
     if dt_values:
         lines.append(f"dt min/max: {min(dt_values):.6f} / {max(dt_values):.6f} s")
     else:
         lines.append("dt min/max: pouze jeden vzorek")
     lines.extend([
         f"Kalibrace platná v řádcích: {sum(row['calibration_valid'] == 1 for row in rows)} / {len(rows)}",
-        f"Nahlášené vynechané vzorky (max kumulativně): {max(row['missed_samples'] for row in rows)}",
-        f"Nahlášené zahozené CSV řádky (max kumulativně): {max(row['serial_dropped_rows'] for row in rows)}",
+        f"Nahlášené vynechané vzorky (max kumulativně): {missed}",
+        f"Nahlášené zahozené CSV řádky (max kumulativně): {dropped}",
         "Segmenty: " + ", ".join(
             f"{segment}={count}" for segment, count in sorted(segments.items())
         ),

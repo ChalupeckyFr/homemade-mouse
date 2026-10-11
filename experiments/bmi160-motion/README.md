@@ -36,6 +36,8 @@ GPIO20 může být na konkrétním C3 použité také pro UART. V Arduino IDE zv
 - Po resetu senzoru a jeho ustálení se nejprve sbírají nejméně 2 sekundy vzorků. Kontrola rozptylu, úhlové rychlosti a normy akcelerace přibližně `g` při nevyhovujícím okně kalibraci opakuje. Je to pouze heuristika: malé pohyby mohou projít a nulové translační zrychlení neznamená, že zařízení stojí — může se pohybovat konstantní rychlostí.
 - Volitelný režim ZUPT lze přepnout příkazem `m`. Pokud zrychlení po dobu alespoň 0,5 s vypadá blízko baseline a gyro blízko biasu, sketch vynuluje odhad rychlosti a stav označí `ZUPT_APPLIED`. To může potlačit drift v odhadnutém klidu, ale neobnoví skutečnou polohu a ze samotné IMU nelze spolehlivě odlišit klid od pohybu konstantní rychlostí. Porovnávej ho s raw režimem, nevybírej výsledek jen podle „hezčího“ grafu.
 
+ODR (vzorkovací frekvence) říká, kolikrát za sekundu senzor nabídne nový vzorek. LSB je číselný „počet“ přímo ze senzoru, který se podle rozsahu převádí na fyzikální jednotky. Baseline je průměrná hodnota při startu; u akcelerometru zahrnuje i gravitaci. Pull-up je rezistor, který drží I²C signál v klidové logické jedničce. ZUPT znamená „vynuluj odhad rychlosti při rozpoznaném klidu“ — nejde o měření skutečné rychlosti ani opravu polohy.
+
 Šum je náhodné kolísání měření; bias je trvalejší posun nulové hodnoty; drift je postupná změna odhadu v čase. Dvojí integrace zesiluje chybu: konstantní chyba zrychlení `b` způsobí chybu polohy přibližně `0,5 × b × t²`. **16bitové rozlišení není totéž co přesnost.** Nižší šum jiného ani dražšího akcelerometru sám o sobě nezaručuje přesnou 3D polohu. Tento PR vybírá ani nenakupuje jiný senzor a nemění BOM.
 
 ## Nahrání, záznam a analýza
@@ -54,7 +56,7 @@ GPIO20 může být na konkrétním C3 použité také pro UART. V Arduino IDE zv
    python3 experiments/bmi160-motion/analyze_log.py bmi160-run.csv
    ```
 
-   Při nezávisle změřené koncové souřadnici v metrech lze připojit například `--reference-end-m 0.10,0,0`. Report porovná `odhad − skutečnost`; nenahrazuje referenční měření ani správně označené segmenty.
+   Při nezávisle změřené koncové souřadnici v metrech lze připojit například `--reference-end-m 0.10,0,0`. Report porovná `odhad − skutečnost`; frekvence řádků odpovídá frekvenci senzoru jen tehdy, pokud log nehlásí ztracené vzorky/řádky. Report nenahrazuje referenční měření ani správně označené segmenty.
 4. Hostitelské testy, bez připojeného ESP32:
 
    ```sh
