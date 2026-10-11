@@ -1,6 +1,6 @@
 # Vlastní počítačová myš
 
-Osobní projekt, ve kterém se učím navrhovat elektroniku a postupně připravit vlastní počítačovou myš. Dokumentuji rozhodnutí, otevřené otázky i chyby, na které narazím. Zatím jde o návrh: repozitář neobsahuje hotovou desku, firmware ani ověřený funkční prototyp.
+Osobní projekt, ve kterém se učím navrhovat elektroniku a postupně připravit vlastní počítačovou myš. Dokumentuji rozhodnutí, otevřené otázky i chyby, na které narazím. Zatím jde o návrh: repozitář neobsahuje hotovou desku ani hlavní firmware myši. Obsahuje samostatný měřicí experiment BMI160; funkční prototyp ani fyzicky naměřené výsledky nejsou doloženy.
 
 > Při přípravě textů mi pomohla také umělá inteligence. Návrhy jsem musel ověřovat a tato poznámka neznamená, že zařízení bylo fyzicky otestováno.
 
@@ -19,7 +19,8 @@ Zapojení níže zachycuje záměr a dostupné upřesnění, nikoli ověřený K
 | Součástky, jejich stav a neověřené specifikace | [Seznam součástek](components/COMPONENTS.md) |
 | Etapy a otevřené úkoly | [Roadmapa](guide/ROADMAP.md) |
 | Plán budoucích kontrol a zaznamenávání výsledků | [Testovací plán](guide/TESTING.md) |
-| Firmware – plán, nikoli existující kód | [Software](software/SOFTWARE.md) a [Arduino kód](arduino-code/ARDUINO-CODE.md) |
+| Izolovaný měřicí experiment BMI160 (není firmware hotové myši) | [Postup, zapojení, sketch a analýza](experiments/bmi160-motion/README.md) |
+| Hlavní firmware myši – stále plán, nikoli existující firmware | [Software](software/SOFTWARE.md) a [Arduino kód](arduino-code/ARDUINO-CODE.md) |
 | Mechanická montáž – zatím bez výrobních podkladů | [Montáž](assembly/ASSEMBLY.md) |
 | Budoucí kryt | [3D návrh](design/3d-design/3D-DESIGN.md) |
 | Inspirace a rozhodnutí o ovládání | [Inspirace](inspiration/INSPIRATION.md) |
