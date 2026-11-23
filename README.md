@@ -20,6 +20,7 @@ Zapojení níže zachycuje záměr a dostupné upřesnění, nikoli ověřený K
 | Etapy a otevřené úkoly | [Roadmapa](guide/ROADMAP.md) |
 | Plán budoucích kontrol a zaznamenávání výsledků | [Testovací plán](guide/TESTING.md) |
 | Izolovaný měřicí experiment BMI160 (není firmware hotové myši) | [Postup, zapojení, sketch a analýza](experiments/bmi160-motion/README.md) |
+| Verze experimentu z chatu (`s`, `k`, `d`, `r`) | [Verzované Arduino sketche BMI160](testing_resources/bmi160/README.md) |
 | Hlavní firmware myši – stále plán, nikoli existující firmware | [Software](software/SOFTWARE.md) a [Arduino kód](arduino-code/ARDUINO-CODE.md) |
 | Mechanická montáž – zatím bez výrobních podkladů | [Montáž](assembly/ASSEMBLY.md) |
 | Budoucí kryt | [3D návrh](design/3d-design/3D-DESIGN.md) |
